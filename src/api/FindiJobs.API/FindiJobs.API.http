@@ -1,0 +1,6 @@
+@FindiJobs.API_HostAddress = http://localhost:44336
+
+GET {{FindiJobs.API_HostAddress}}/GetHealth/
+Accept: application/json
+
+###

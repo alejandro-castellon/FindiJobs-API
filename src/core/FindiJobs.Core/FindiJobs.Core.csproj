@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\dal\FindiJobs.DAL.Interfaces\FindiJobs.DAL.Interfaces.csproj" />
+    <ProjectReference Include="..\..\models\FindiJobs.Models\FindiJobs.Models.csproj" />
+    <ProjectReference Include="..\FindiJobs.Core.Interfaces\FindiJobs.Core.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

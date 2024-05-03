@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\FindiJobs.Core.Interfaces\FindiJobs.Core.Interfaces.csproj" />
+    <ProjectReference Include="..\..\core\FindiJobs.Core\FindiJobs.Core.csproj" />
+    <ProjectReference Include="..\..\dal\FindiJobs.DAL.Interfaces\FindiJobs.DAL.Interfaces.csproj" />
+    <ProjectReference Include="..\..\dal\FindiJobs.DAL\FindiJobs.DAL.csproj" />
+    <ProjectReference Include="..\..\models\FindiJobs.Models\FindiJobs.Models.csproj" />
+  </ItemGroup>
+
+</Project>
