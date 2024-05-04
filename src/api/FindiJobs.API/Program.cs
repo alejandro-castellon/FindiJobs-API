@@ -2,6 +2,7 @@ using FindiJobs.Core;
 using FindiJobs.Core.Interfaces;
 using FindiJobs.DAL;
 using FindiJobs.DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IHealthService, HealthService>();
 builder.Services.AddScoped<IHealthRepository, HealthRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 var app = builder.Build();
 
