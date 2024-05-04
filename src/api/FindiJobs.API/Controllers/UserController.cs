@@ -1,6 +1,8 @@
 ﻿using FindiJobs.Core.Interfaces;
+using FindiJobs.Exception;
 using FindiJobs.Models;
 using Microsoft.AspNetCore.Mvc;
+using FluentValidation;
 
 namespace FindiJobs.API.Controllers;
 
@@ -41,8 +43,26 @@ public class UserController : ControllerBase
     [Route("postUser")]
     public ActionResult<User> PostUser(User user)
     {
-        var result = this.userService.PostUser(user);
-        return new OkObjectResult(result);
+        try
+        {
+            var result = this.userService.PostUser(user);
+            return new OkObjectResult(result);
+        }
+        catch (ValidationException exVal)
+        {
+            var errorException = new FindiJobsExceptions(FindiJobsErrors.BadRequest, exVal);
+            return errorException.Error;
+        }
+        catch (FindiJobsExceptions e)
+        {
+            return e.Error;
+        }
+        catch (System.Exception e)
+        {
+            var errorException = new FindiJobsExceptions(FindiJobsErrors.InternalServerError, e);
+            return errorException.Error;
+        }
+
     }
 
     [HttpPut]
@@ -50,6 +70,10 @@ public class UserController : ControllerBase
     public ActionResult<User> UpdateUser(int id, User userUpdatedData)
     {
         var result = this.userService.UpdateUser(id, userUpdatedData);
+        if (result == null)
+        {
+            return NotFound("Invalid Id");
+        }
         return new OkObjectResult(result);
     }
 

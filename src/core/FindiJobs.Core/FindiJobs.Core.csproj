@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\dal\FindiJobs.DAL.Interfaces\FindiJobs.DAL.Interfaces.csproj" />
     <ProjectReference Include="..\..\models\FindiJobs.Models\FindiJobs.Models.csproj" />
     <ProjectReference Include="..\FindiJobs.Core.Interfaces\FindiJobs.Core.Interfaces.csproj" />
