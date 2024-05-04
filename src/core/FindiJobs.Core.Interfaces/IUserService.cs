@@ -17,6 +17,6 @@ namespace FindiJobs.Core.Interfaces
 
         public void RemoveUser(int id);
 
-        User UpdateProject(User user);
+        User UpdateUser(int id, User updatedData);
     }
 }

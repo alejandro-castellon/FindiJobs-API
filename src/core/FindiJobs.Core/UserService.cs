@@ -1,11 +1,6 @@
 ﻿using FindiJobs.Core.Interfaces;
 using FindiJobs.DAL.Interfaces;
 using FindiJobs.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FindiJobs.Core
 {
@@ -30,17 +25,17 @@ namespace FindiJobs.Core
 
         public User PostUser(User user)
         {
-            throw new NotImplementedException();
+            return this.userRepository.Add(user);
         }
 
         public void RemoveUser(int id)
         {
-            throw new NotImplementedException();
+            this.userRepository.Delete(id);
         }
 
-        public User UpdateProject(User user)
+        public User UpdateUser(int id, User updatedData)
         {
-            throw new NotImplementedException();
+            return this.userRepository.Update(id, updatedData);
         }
     }
 }
